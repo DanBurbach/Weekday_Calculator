@@ -12,5 +12,16 @@ describe('date object', function() {
     expect(weekCalc.month).toEqual(11);
   });
 
+  it('should gather the year and calculate if it is a leap year or not', function(){
+    expect(weekCalc.leapYear()).toEqual(false);
+  });
 
-})
+  it('should return the remainder of 12 and the decade and year value of a given date', function(){
+    expect(weekCalc.yearFit()).toEqual(6);
+  });
+
+  it('should find the difference between the last two digits of the year number and the returned product of the multiples of 12 from the remainder of 12 and the decade and year value of a given date', function(){
+    expect(weekCalc.yearDifference()).toEqual(6);
+  });
+
+});
