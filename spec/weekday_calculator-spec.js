@@ -37,5 +37,8 @@ describe('date object', function() {
     expect(weekCalc.doomsdayFinder(1978, 11, 11)).toEqual(2);
   });
 
+  it('should return the doomsday date based off of a given month', function (){
+    expect(weekCalc.doomMonths()).toEqual(7);
+  })
 
 });

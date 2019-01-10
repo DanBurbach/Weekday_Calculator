@@ -35,4 +35,4 @@ Daniel Burbach & Chris Rudnicky_</sup>
 
   >Input: weekCalc = new WeekCalc(1978, 11, 11);  weekCalc.anchorDayFinder()
 
-  >Output: 3
+  >Output: 2

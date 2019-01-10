@@ -1,6 +1,5 @@
 class WeekCalc {
 
-
   constructor(year, day, month) {
     this.year = year;
     this.day = day;
@@ -42,7 +41,6 @@ class WeekCalc {
   }
 
   anchorDayFinder() {
-
     if (1800 <= this.year && this.year <= 1899) {
       return 5;
     } else if (1900 <= this.year && this.year <= 1999) {
@@ -55,20 +53,61 @@ class WeekCalc {
   }
 
   doomsdayFinder() {
-    if(1800 > this.year && this.year > 2199) {
+    if (1800 > this.year || this.year > 2199) {
       return "Outside of acceptable date range";
     } else {
       let yearSurgery = this.year.toString().split("").splice(2,2);
       let decadeCapture = yearSurgery.join("");
       let result = decadeCapture % 12;
-      let answer = parseInt(decadeCapture - (result * 12));
+      // console.log(result);
+      let answer = Math.abs(decadeCapture - (result * 12));
+      // console.log(answer);
       let comparison = Math.floor(answer / 4);
-      // let anchorDay = new WeekCalc();
+      // console.log(comparison);
       let value = this.anchorDayFinder();
-      let doomsDay = result + answer + comparison + value;
-      console.log("hello");
-      return doomsDay % 7;
+      // console.log(value);
+      let doomsDay = (result + answer + comparison + value) % 7;
+      // console.log(doomsDay);
+      return doomsDay;
     }
   }
+
+  doomMonths() {
+    let monthDay;
+    if (this.month == 1 && this.leapYear() == true) {
+      monthDay = 4;
+    } else if (this.month == 1 && this.leapYear() == false) {
+      monthDay = 3;
+    } else if (this.month == 2 && this.leapYear() == true) {
+      monthDay = 29;
+    } else if (this.month == 2 && this.leapYear() == false) {
+      monthDay = 28;
+    } else if (this.month == 3 && this.leapYear() == true) {
+      monthDay = 29;
+    } else if (this.month == 3 && this.leapYear() == false) {
+      monthDay = 28;
+    } else if (this.month == 4) {
+      monthDay = 4;
+    } else if (this.month == 5) {
+      monthDay = 9;
+    } else if (this.month == 6) {
+      monthDay = 6;
+    } else if (this.month == 7) {
+      monthDay = 11;
+    } else if (this.month == 8) {
+      monthDay = 8;
+    } else if (this.month == 9) {
+      monthDay = 5;
+    } else if (this.month == 10) {
+      monthDay = 10;
+    } else if (this.month == 11) {
+      monthDay = 7;
+      // test here
+    } else if (this.month == 12) {
+      monthDay = 12;
+    }
+    return monthDay;
+  }
+
 }
 export { WeekCalc };
