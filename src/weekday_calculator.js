@@ -72,7 +72,7 @@ class WeekCalc {
     }
   }
 
-  doomMonths() {
+  doomDay() {
     let monthDay;
     if (this.month == 1 && this.leapYear() == true) {
       monthDay = 4;
@@ -109,5 +109,49 @@ class WeekCalc {
     return monthDay;
   }
 
-}
+  doomCalculate() {
+    let numberDay;
+    let numberDay1;
+    let numberDay2;
+    if (this.day > this.doomDay()) {
+      numberDay = ((this.day - this.doomDay()) + this.anchorDayFinder() - 1) % 7;
+    }
+    else if (this.day < this.doomDay()) {
+      console.log("doomday: " + this.doomDay());
+      console.log("day: " + this.day);
+      numberDay = ((this.doomDay() - this.day) + this.anchorDayFinder()) % 7;
+      numberDay1 = (this.day + 7) % 7;
+      numberDay2 =((this.day % this.doomDay())) + this.doomDay() % 7 ;
+    }
+    console.log(this.day - this.doomDay());
+    console.log("nd: " + numberDay);
+    console.log("nd1: " + numberDay1);
+    console.log("nd2: " + numberDay2);
+    return numberDay;
+  }
+
+  translate() {
+    if(this.doomCalculate() == 0) {
+      return "Sunday";
+    }
+    else if(this.doomCalculate() == 1) {
+      return "Monday";
+    }
+    else if(this.doomCalculate() == 2) {
+      return "Tuesday";
+    }
+    else if(this.doomCalculate() == 3) {
+      return "Wednesday";
+    }
+    else if(this.doomCalculate() == 4) {
+      return "Thursday";
+    }
+    else if(this.doomCalculate() == 5) {
+      return "Friday";
+    }
+    else if(this.doomCalculate() == 6) {
+      return "Saturday";
+    }
+    }
+  }
 export { WeekCalc };

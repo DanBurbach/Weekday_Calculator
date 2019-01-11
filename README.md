@@ -36,3 +36,9 @@ Daniel Burbach & Chris Rudnicky_</sup>
   >Input: weekCalc = new WeekCalc(1978, 11, 11);  weekCalc.anchorDayFinder()
 
   >Output: 2
+
+6. The app should be able to return a doomsday date given the month provided:
+
+  >Input: weekCalc = new WeekCalc(1978, 11, 11); weekCalc.anchorDayFinder()
+
+  >Output: 7
